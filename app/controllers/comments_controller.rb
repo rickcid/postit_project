@@ -1,12 +1,12 @@
 class CommentsController < ApplicationController
 
   def create
-    @post = post.find(params[:post_id])
+    @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
-    @comment.creator = User.first
+    @comment.user = User.first
 
     if @comment.save
-      redirect_to action: :show, id: @post.id #or, redirect_to posts_path(@post), notice: 'Congratulations, your comment was created!'
+      redirect_to posts_path(@post), notice: 'Congratulations, your comment was created!'
     else
       @post.reload
       render 'posts/show'
