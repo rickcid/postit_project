@@ -1,12 +1,14 @@
 <h4>Showing Post:</h4>
 <%= link_to @post.title, fix_url(@post.url) %>
 
-<%= render 'shared/errors', obj: @comment %>
-<h4>Create a comment</h4>
-<%= form_for [@post, @comment] do |f| %>
-	<%= f.text_area :body %>
- 	<br/>
- 	<%= f.submit "Create comment" %>
+<% if logged_in? %>
+	<%= render 'shared/errors', obj: @comment %>
+	<h4>Create a comment</h4>
+	<%= form_for [@post, @comment] do |f| %>
+		<%= f.text_area :body %>
+	 	<br/>
+	 	<%= f.submit "Create comment" %>
+	<% end %>
 <% end %>
 
 <h5>Comments:</h5>
