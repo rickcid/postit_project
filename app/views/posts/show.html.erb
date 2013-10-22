@@ -12,8 +12,6 @@
 <% end %>
 
 <h5>Comments:</h5>
-<ul>
- 	<% @post.reload.comments.each do |comment| %>
- 		<li><%= comment.body %></li>
-	<% end %>
-</ul>
+<% @post.reload.comments.each do |comment| %>
+	<%= render 'comment', comment: comment %>
+<% end %>
