@@ -8,7 +8,7 @@
 			<br/>
 		<% end %>
 
-		<span id='post_<%=post.to_param %>_votes'><%= post.total_votes %></span>
+		<span id='post_<%= post.id %>_votes'><%= post.total_votes %></span>
 		<br/>
 		<% if logged_in? %>
 
