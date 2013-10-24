@@ -40,7 +40,10 @@ before_action :require_user, except: [:index, :show, :vote]
 
   def vote
     Vote.create(voteable: @post, creator: current_user, vote: params[:vote])
-    redirect_to :back, notice: "Your vote was counted."
+    respond_to do |format|
+      format.html { redirect_to :back, notice: "Your vote was counted." }
+      format.js
+    end
   end
 
 

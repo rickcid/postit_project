@@ -16,3 +16,14 @@
 //= require_tree .
 //= require bootstrap
 
+// The following is for reference, it is not imployed in app
+$(document).ready(function() {
+	$('#hit_form input').click(function() { // 1. Unobstrusive javascript event listener
+		$.ajax({ // 2. Trigger ajax request
+			type: 'POST',
+			url:'/player/hit'
+		}).done(funtion(msg){ // 3. Handle the response
+
+		})
+	});
+});
