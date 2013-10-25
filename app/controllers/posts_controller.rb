@@ -54,6 +54,6 @@ before_action :require_user, except: [:index, :show, :vote]
     end
 
     def set_post
-      @post = Post.find(params[:id])
+      @post = Post.find_by(slug: params[:id])
     end
 end
