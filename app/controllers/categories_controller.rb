@@ -25,4 +25,8 @@ class CategoriesController < ApplicationController
     def category_params
       params.require(:category).permit(:name)
     end
+
+    def set_category
+      @category = Category.find_by(slug: params[:id])
+    end
 end
